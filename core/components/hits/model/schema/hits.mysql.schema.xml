@@ -2,6 +2,6 @@
 <model package="hits" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM">
     <object class="Hit" table="hits" extends="xPDOSimpleObject">
     	<field key="hit_key" dbtype="int" precision="11" phptype="integer" null="true" />
-		<field key="hit_count" dbtype="varchar" precision="11" phptype="integer" null="true"/>
+		<field key="hit_count" dbtype="int" precision="11" phptype="integer" null="true"/>
     </object>
 </model>
