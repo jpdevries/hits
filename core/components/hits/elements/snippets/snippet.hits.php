@@ -79,11 +79,10 @@ if($punch && $amount) {
 }
 
 $s = '';
-if(count($parents)) { // return results if requested (keyed off parents parameter
+if(count($parents)) { // return results if requested (keyed off parents parameter)
 	// create an array of child ids to compare hits
 	$childIds = array();
 	foreach($parents as $parent) {
-		print "hi";
 		$childIds = array_merge($childIds,$modx->getChildIds($parent,$depth));
 	} 
 
