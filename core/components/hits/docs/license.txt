@@ -1,6 +1,6 @@
 --------------------
 Extra: Hits
 --------------------
-Version: 0.9.8
+Version: 0.1.0
  
-Heart Wholesale Order management system.
+Hits for MODX tracks pagehits with a punch.

@@ -7,23 +7,26 @@ $xpdo_meta_map['Hit']= array (
   'fields' => 
   array (
     'hit_key' => NULL,
-    'hit_count' => NULL,
+    'hit_count' => 0,
   ),
   'fieldMeta' => 
   array (
     'hit_key' => 
     array (
       'dbtype' => 'int',
-      'precision' => '11',
+      'precision' => '10',
+      'attributes' => 'unsigned',
       'phptype' => 'integer',
       'null' => true,
     ),
     'hit_count' => 
     array (
-      'dbtype' => 'varchar',
-      'precision' => '11',
+      'dbtype' => 'int',
+      'precision' => '10',
+      'attributes' => 'unsigned',
       'phptype' => 'integer',
-      'null' => true,
+      'null' => false,
+      'default' => 0,
     ),
   ),
 );
