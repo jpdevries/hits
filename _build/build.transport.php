@@ -6,7 +6,7 @@ set_time_limit(0);
 /* define package names */
 define('PKG_NAME','Hits');
 define('PKG_NAME_LOWER','hits');
-define('PKG_VERSION','1.0.1');
+define('PKG_VERSION','1.0.3');
 define('PKG_RELEASE','pl');
  
 /* define build paths */

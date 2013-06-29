@@ -1,1 +1,1 @@
-[[+hit_count]]
+[[+hit_key]]

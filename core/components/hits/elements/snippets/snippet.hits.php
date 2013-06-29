@@ -52,7 +52,7 @@ $depth = $modx->getOption('depth',$scriptProperties,10);
 $outputSeparator = $modx->getOption('outputSeparator',$scriptProperties,"\n");
 $toPlaceholder = $modx->getOption('toPlaceholder',$scriptProperties,"");
 
-if((integer)$parents == 0) $parents = array(0); // i know, i know
+if($parents === 0) $parents = array(0); // i know, i know
 else if($parents) $parents = explode(',', $parents);
 
 
@@ -81,6 +81,7 @@ if($punch && $amount) {
 $s = '';
 if(count($parents)) { // return results if requested (keyed off parents parameter)
 	// create an array of child ids to compare hits
+	
 	$childIds = array();
 	foreach($parents as $parent) {
 		$childIds = array_merge($childIds,$modx->getChildIds($parent,$depth));

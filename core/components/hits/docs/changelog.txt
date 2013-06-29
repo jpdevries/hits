@@ -1,6 +1,10 @@
 Changelog file for Hits component.
 
-Hits 1.0.1
+Hits 1.0.3
+====================================
+- Parents hotfix
+
+Hits 1.0.2
 ====================================
 - Fix default tpl
 
