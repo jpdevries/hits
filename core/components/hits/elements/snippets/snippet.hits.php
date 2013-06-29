@@ -41,14 +41,14 @@ $punch = $modx->getOption('punch',$scriptProperties,null);
 $amount = $modx->getOption('amount',$scriptProperties,1);
 $sort = $modx->getOption('sort',$scriptProperties,'hit_count');
 $dir = $modx->getOption('dir',$scriptProperties,'DESC');
-$parents = $modx->getOption('parents',$scriptProperties,$modx->resource->get('id') || '');
+$parents = $modx->getOption('parents',$scriptProperties,null);
 $chunk = $modx->getOption('chunk',$scriptProperties,'hitTpl');
 $limit = $modx->getOption('limit',$scriptProperties,5);
 $depth = $modx->getOption('depth',$scriptProperties,10);
 $outputSeparator = $modx->getOption('outputSeparator',$scriptProperties,"\n");
 $toPlaceholder = $modx->getOption('toPlaceholder',$scriptProperties,"");
 
-$parents = explode(',', $parents);
+if($parents) $parents = explode(',', $parents);
 
 // don't just go throwing punches blindy, only store a page hit if told to do so
 if($punch && $amount) {
@@ -74,7 +74,7 @@ if($punch && $amount) {
 
 $s = '';
 if(count($parents)) { // return results if requested (keyed off parents parameter
-
+	print_r($parents);
 	// create an array of child ids to compare hits
 	$childIds = array();
 	foreach($parents as $parent) {
