@@ -27,7 +27,7 @@
 		
 */ 
 
-// get the service
+// get the hit service
 $defaultHitsCorePath = $modx->getOption('core_path').'components/hits/';
 $hitsCorePath = $modx->getOption('hits.core_path',null,$defaultHitsCorePath);
 $hitService = $modx->getService('hits','Hits',$hitsCorePath.'model/hits/',$scriptProperties);
@@ -101,7 +101,6 @@ if(count($parents)) { // return results if requested (keyed off parents paramete
 		$s .= $hitService->getChunk($tpl,$hit->toArray()) . $outputSeparator;	
 	}
 }
-
 
 
 if($toPlaceholder) { // would you like that for here or to go?
