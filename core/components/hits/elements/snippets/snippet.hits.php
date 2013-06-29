@@ -46,6 +46,8 @@ $chunk = $modx->getOption('chunk',$scriptProperties,'hitTpl');
 $limit = $modx->getOption('limit',$scriptProperties,5);
 $depth = $modx->getOption('depth',$scriptProperties,1);
 $outputSeparator = $modx->getOption('outputSeparator',$scriptProperties,"\n");
+$toPlaceholder = $modx->getOption('toPlaceholder',$scriptProperties,"");
+
 $parents = explode(',', $parents);
 
 // don't just go throwing punches blindy, only store a page hit if told to do so
@@ -90,6 +92,11 @@ if(count($parents)) { // return results if requested (keyed off parents paramete
 	foreach($hits as $hit) { 
 		$s .= $hitService->getChunk($chunk,$hit->toArray()) . $outputSeparator;	
 	}
+}
+
+if($toPlaceholder) {
+	$modx->setPlaceholder($toPlaceholder,$s);
+	return;
 }
 
 return $s;
