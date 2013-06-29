@@ -44,7 +44,7 @@ $dir = $modx->getOption('dir',$scriptProperties,'DESC');
 $parents = $modx->getOption('parents',$scriptProperties,$modx->resource->get('id') || '');
 $chunk = $modx->getOption('chunk',$scriptProperties,'hitTpl');
 $limit = $modx->getOption('limit',$scriptProperties,5);
-$depth = $modx->getOption('depth',$scriptProperties,1);
+$depth = $modx->getOption('depth',$scriptProperties,10);
 $outputSeparator = $modx->getOption('outputSeparator',$scriptProperties,"\n");
 $toPlaceholder = $modx->getOption('toPlaceholder',$scriptProperties,"");
 
