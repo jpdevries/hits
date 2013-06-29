@@ -10,7 +10,7 @@
 
 		USAGE: (assumes a chunk named hitID contains "[[+hit_key]]")
 		Get a comma seperated list of ids of the 10 most visited pages 10 levels down from the web context
-		[[!Hits? &parents=`0` &depth=`0` &limit=`10` &outSeperator=`,` &chunk=`hitID`]]
+		[[!Hits? &parents=`0` &depth=`10` &limit=`10` &outSeperator=`,` &chunk=`hitID`]]
 
 		Get a comma seperated list of ids of the 4 least visited pages that are children of resource 4
 		[[!Hits? &parents=`4` limit=`4` &dir=`ASC`  &outSeperator=`,` &chunk=`hitID`]]
