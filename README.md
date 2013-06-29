@@ -1,7 +1,7 @@
 hits
 ====
 
-Counts page hits of MODX Resources
+Counts page hits of MODX Resources and stores them in a custom table.
 
 ### USAGE:
 Get a comma seperated list of ids of the 10 most visited pages 10 levels down from the web context
