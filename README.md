@@ -1,7 +1,7 @@
 Hits
 ====
 
-Hits for MODX tracks pagehits with a punch by counting page hits of MODX Resources and storing them in a custom table.
+Hits for MODX tracks pagehits with a punch. Hits counts MODX Revolution page view and stores them in a custom table. 
 
 Hits does two things:
  * allows you to record page hits based on a provided hit_key (such as a resource id)
