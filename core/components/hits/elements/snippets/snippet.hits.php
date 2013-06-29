@@ -1,6 +1,6 @@
 <?php
 /*          __             	// Hits for MODX Revolution
-/\ \      __/\ \__          	// come to us for your dirty work
+/\ \      __/\ \__          	    come to us for your dirty work
 \ \ \___ /\_\ \ ,_\   ____  		created by:
  \ \  _ `\/\ \ \ \/  /',__\ 		JP DeVries @jpdevries
   \ \ \ \ \ \ \ \ \_/\__, `\		YJ Tso @sepiariver
@@ -58,7 +58,7 @@ if($punch && $amount) {
 
 	if($hit) {
 		// increment the amount
-		$hit->set('hit_count',$hit->get('hit_count') + $amount); 
+		$hit->set('hit_count',(integer)$hit->get('hit_count') + $amount); 
 		$hit->save();
 	} else {
 		// create a new hit record
@@ -74,7 +74,6 @@ if($punch && $amount) {
 
 $s = '';
 if(count($parents)) { // return results if requested (keyed off parents parameter
-	print_r($parents);
 	// create an array of child ids to compare hits
 	$childIds = array();
 	foreach($parents as $parent) {
