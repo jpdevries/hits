@@ -1,5 +1,13 @@
 Changelog file for Hits component.
 
+Hits 0.1.2
+====================================
+- Adding support for &parents=`0`
+
+Hits 0.1.1
+====================================
+- Removing setup options
+
 Hits 0.1.0
 ====================================
 - Initial commit

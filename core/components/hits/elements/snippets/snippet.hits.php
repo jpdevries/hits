@@ -48,7 +48,7 @@ $depth = $modx->getOption('depth',$scriptProperties,10);
 $outputSeparator = $modx->getOption('outputSeparator',$scriptProperties,"\n");
 $toPlaceholder = $modx->getOption('toPlaceholder',$scriptProperties,"");
 
-if($parents) $parents = explode(',', $parents);
+if($parents || $parents='0') $parents = explode(',', $parents);
 
 // don't just go throwing punches blindy, only store a page hit if told to do so
 if($punch && $amount) {
