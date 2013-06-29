@@ -105,7 +105,7 @@ if(count($parents)) { // return results if requested (keyed off parents paramete
 
 
 
-if($toPlaceholder) { // would you like like here or to go?
+if($toPlaceholder) { // would you like that for here or to go?
 	$modx->setPlaceholder($toPlaceholder,$s);
 	return;
 }
