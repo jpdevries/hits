@@ -5,7 +5,7 @@ Hits for MODX tracks pagehits with a punch. Hits counts MODX Revolution page vie
 
 With hits you can:
  * record page hits based on a provided hit_key (such as a resource id)
- * Returns the results of a hit query and use with getResources
+ * Returns the results of a hit query and [use with getResources](#with-getresources)
 
 
 ## Usage
