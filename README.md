@@ -45,7 +45,7 @@ Get a comma-delimited list of ids of the 4 least visited pages that are children
 | toSeperator     | If set, will assign the result to this placeholder instead of outputting it directly.                                                                                            |                 | 1.0.0
 
 ## With getResources
-Hits can be used be used with getResources to list the most or least visited pages. This will pass a comma seperated list of ids of the 10 most visited pages according to Hits into getResources.
+Hits can be used be used with [getResources](http://rtfm.modx.com/display/ADDON/getResources) to list the most or least visited pages. This will pass a comma seperated list of ids of the 10 most visited pages according to Hits into getResources.
 
     [[getResources?
     &resources=`[[!Hits? &parents=`0` &depth=`10` &limit=`10` &outSeperator=`,`]]`
@@ -55,10 +55,10 @@ Hits can be used be used with getResources to list the most or least visited pag
 ## Optimization
 
 #### Recording Hits
-Hits needs to be called uncached whenever it is punching hits. If you don't want the processing of a hit to affect page load time you can use Hits with [xFPC](http://modx.com/extras/package/xfpc) to record the hit after page load using AJAX.
+Hits needs to be called uncached whenever it is punching hits. If you don't want the processing of a hit to affect page load time you can record your hits after page load using AJAX.
 
 #### Displaying Statistics
-When using with getResources to display listings of the most viewed pages remember that you can utilize getCache to cache the results to the filesystem for a determined period time as well as share the cache across multiple pages. If you are displaying a "Most Visited Pages" nav in your sidebar, the results are probably going to be the same across all or multiple pages. Thus, you can utilize the getCache cacheElementKey paramater to share the cache file across multiple (in this case all) resources. Put your getResources call in a Chunk named getMostViewed.
+When using with getResources remember that you can utilize [getCache](https://github.com/opengeek/getCache/wiki) to cache the results to the filesystem for a determined period time as well as share the cache across multiple pages. If you are displaying a "Most Visited Pages" nav in your sidebar, the results are probably going to be the same across all or multiple pages. Thus, you can utilize the getCache cacheElementKey paramater to share the cache file across multiple (in this case all) resources. Move getResources tag to a 'getMostViewed' Chunk. 
 
     [[!getCache?
     &element=`getMostViewed`
