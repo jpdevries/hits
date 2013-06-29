@@ -31,7 +31,7 @@ Get a comma-delimited list of ids of the 4 least visited pages that are children
     
 
 ## Available Properties
-| Name            | Description                                                                                                                                                                      | Default Value  | Added in version
+| Name            | Description                                                                                                                                                                      | Default Value   | Added in version
 | ----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| -----:| -------:|
 | punch           | If set, a hit_key to record one or more hits for. Usually a resource id.                                                                                                         |                 | 1.0.0
 | amount          | The amount of hits to record for the punched hit_key.                                                                                                                            | 1               | 1.0.0
