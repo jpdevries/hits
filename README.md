@@ -24,6 +24,10 @@ Get a comma-delimited list of ids of the 10 most visited pages 10 levels down fr
 Get a comma-delimited list of ids of the 4 least visited pages that are children of resource 2 and use your own hitInfo chunk to render results.
 
     [[!Hits? &parents=`2` limit=`4` &dir=`ASC`  &chunk=`hitInfo` &outputSeperator=`,`]]
+    
+Remove 20 hit from resource 4
+
+    [[!Hits? &punch=`4` &amount=`20`]]
 
 
 ## Available Properties
