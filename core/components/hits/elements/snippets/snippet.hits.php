@@ -36,19 +36,19 @@ $created = $m->createObjectContainer('Hit');
 return $created ? 'Table created.' : 'Table not created.';*/
 
 /* setup default properties */
-$tpl = $modx->getOption('tpl',$scriptProperties,'rowTpl');
 $punch = $modx->getOption('punch',$scriptProperties,null); 
 $amount = $modx->getOption('amount',$scriptProperties,1);
 $sort = $modx->getOption('sort',$scriptProperties,'hit_count');
 $dir = $modx->getOption('dir',$scriptProperties,'DESC');
 $parents = $modx->getOption('parents',$scriptProperties,null);
-$chunk = $modx->getOption('chunk',$scriptProperties,'hitTpl');
+$tpl = $modx->getOption('tpl',$scriptProperties,'hitTpl'); 
 $limit = $modx->getOption('limit',$scriptProperties,5);
 $depth = $modx->getOption('depth',$scriptProperties,10);
 $outputSeparator = $modx->getOption('outputSeparator',$scriptProperties,"\n");
 $toPlaceholder = $modx->getOption('toPlaceholder',$scriptProperties,"");
 
-if($parents || $parents='0') $parents = explode(',', $parents);
+if($parents) $parents = explode(',', $parents);
+if($parents == 0) $parents = array(0);
 
 // don't just go throwing punches blindy, only store a page hit if told to do so
 if($punch && $amount) {
@@ -77,8 +77,11 @@ if(count($parents)) { // return results if requested (keyed off parents paramete
 	// create an array of child ids to compare hits
 	$childIds = array();
 	foreach($parents as $parent) {
+		print "hi";
 		$childIds = array_merge($childIds,$modx->getChildIds($parent,$depth));
 	} 
+
+	//print_r($childIds);
 
 	// who's got the most hits kids?
 	$c = $modx->newQuery('Hit');
@@ -90,9 +93,11 @@ if(count($parents)) { // return results if requested (keyed off parents paramete
 	// render the results
 	$hits = $modx->getCollection('Hit',$c);
 	foreach($hits as $hit) { 
-		$s .= $hitService->getChunk($chunk,$hit->toArray()) . $outputSeparator;	
+		$s .= $hitService->getChunk($tpl,$hit->toArray()) . $outputSeparator;	
 	}
 }
+
+
 
 if($toPlaceholder) { // would you like like here or to go?
 	$modx->setPlaceholder($toPlaceholder,$s);
