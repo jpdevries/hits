@@ -27,7 +27,7 @@ $defaultHitsCorePath = $modx->getOption('core_path').'components/hits/';
 $hitsCorePath = $modx->getOption('hits.core_path',null,$defaultHitsCorePath);
 $hitService = $modx->getService('hits','Hits',$hitsCorePath.'model/hits/',$scriptProperties);
 
-if (!($hitService instanceof Hits)) return 'failed'; // or not
+if (!($hitService instanceof Hits)) return 'failed'; // you'll need another fool to do your dirty work
 
 $s = '';
 
