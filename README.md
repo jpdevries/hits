@@ -51,7 +51,7 @@ Hits can be used be used with getResources to list the most or least visited pag
 ## Optimization
 
 #### Recording Hits
-Hits needs to be called uncached whenever it is recording hits using the punch parameter. If you don't want the recording of a hit to affect page load time you can use Hits with xFPC to record the hit after page load using AJAX.
+Hits needs to be called uncached whenever it is recording hits. If you don't want the recording of a hit to affect page load time you can use Hits with xFPC to record the hit after page load using AJAX.
 
 #### Displaying Statistics
 When using with getResources to display listings of the most viewed pages remember that you can utilize getCache to cache the results to the filesystem for a determined period time as well as share the cache across multiple pages. If you are displaying a "Most Visited Pages" nav in your sidebar, the results are probably going to be the same across all or multiple pages. Thus, you can utilize the getCache cacheElementKey paramater to share the cache file across multiple (in this case all) resources. Put your getResources call in a Chunk named getMostViewed.
