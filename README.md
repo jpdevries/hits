@@ -63,7 +63,7 @@ When using with getResources to display listings of the most viewed pages rememb
     &cacheElementKey=`getMostViewed`
     ]]
     
-Our getMostViewed chunk will now only be processed every 15 minutes and load from a single shared cache. This means no matter how many visitors we have, we are only processing this output once every 15 minutes.
+The getMostViewed chunk will now only be processed every 15 minutes and load from a single shared cache. This means no matter how many visitors we have, we are only processing this output once every 15 minutes.
 
 Alternatively, you could use wrap the Hits tag, rather than your entire getResources tag in getCache.
 
