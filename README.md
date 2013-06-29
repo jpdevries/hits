@@ -37,7 +37,7 @@ Get a comma-delimited list of ids of the 4 least visited pages that are children
 | amount      | The amount of hits to record for the punched hit_key.      |   1 |1.0.0
 | parents | Comma-delimited list of ids serving as parents to search for most visited resources within. If provided, results are returned.      |     |1.0.0
 | depth | Integer value indicating depth to search for resources from each parent. First level of resources beneath parent is depth.      |    10 |1.0.0
-| tpl | Chunk to be used for formatting results.      |    outputs hit_key |1.0.0
+| tpl | hit_key, hit_count, and id (of hit) paramters will be passed into the provided chunk to be used for formatting results.       |    outputs hit_key |1.0.0
 | limit | The amount of results to return.      |    5 |1.0.0
 | sort | Property to sort results on. Available options are hit_count, hit_key or id.      |    hit_count |1.0.0
 | dir | Direction to sort properties on.      |    DESC |1.0.0
