@@ -50,11 +50,6 @@ $parents = explode(',', $parents);
 
 // only store a page hit if told to do so
 if($punch && $amount) {
-	$c = $modx->newQuery('Hit');
-	$c->where(array(
-		'hit_key' => $punch
-	));
-	//$c->sortby($sort,$dir);
 	$hit = $modx->getObject('Hit',array(
 		'hit_key' => $punch
 	));
