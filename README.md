@@ -17,13 +17,13 @@ Record 4 hit for resource 5.
 
     [[!Hits? &punch=`5` &amount=`4`]]
 
-Get a comma seperated list of ids of the 10 most visited pages 10 levels down from the web context.
+Get a comma-delimited list of ids of the 10 most visited pages 10 levels down from the web context.
 
-    [[!Hits? &parents=`0` &depth=`10` &limit=`10`]]
+    [[!Hits? &parents=`0` &depth=`10` &limit=`10` &outputSeperator=`,`]]
 
-Get a comma seperated list of ids of the 4 least visited pages that are children of resource 2 and use your own hitInfo chunk to render results.
+Get a comma-delimited list of ids of the 4 least visited pages that are children of resource 2 and use your own hitInfo chunk to render results.
 
-    [[!Hits? &parents=`2` limit=`4` &dir=`ASC`  &chunk=`hitInfo`]]
+    [[!Hits? &parents=`2` limit=`4` &dir=`ASC`  &chunk=`hitInfo` &outputSeperator=`,`]]
 
 
 ## Available Properties
