@@ -12,8 +12,8 @@
 		Get a comma seperated list of ids of the 10 most visited pages 10 levels down from the web context
 		[[!Hits? &parents=`0` &depth=`10` &limit=`10` &outSeperator=`,` &chunk=`hitID`]]
 
-		Get a comma seperated list of ids of the 4 least visited pages that are children of resource 2
-		[[!Hits? &parents=`2` limit=`4` &dir=`ASC`  &outSeperator=`,` &chunk=`hitID`]]
+		Get a comma seperated list of ids of the 4 least visited pages that are children of resource 2 and set results to a placeholder
+		[[!Hits? &parents=`2` limit=`4` &dir=`ASC`  &outSeperator=`,` &chunk=`hitID` &toPlaceholder=`hits`]]
 
 		Record a hit for resource 3
 		[[!Hits? &punch=`3`]]
@@ -88,13 +88,14 @@ if(count($parents)) { // return results if requested (keyed off parents paramete
 		'hit_key:IN' => $childIds
 	));
 
+	// render the results
 	$hits = $modx->getCollection('Hit',$c);
 	foreach($hits as $hit) { 
 		$s .= $hitService->getChunk($chunk,$hit->toArray()) . $outputSeparator;	
 	}
 }
 
-if($toPlaceholder) {
+if($toPlaceholder) { // would you like like here or to go?
 	$modx->setPlaceholder($toPlaceholder,$s);
 	return;
 }
