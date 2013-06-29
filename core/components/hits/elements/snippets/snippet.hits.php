@@ -18,8 +18,13 @@
 		Record a hit for resource 3
 		[[!Hits? &punch=`3`]]
 
-		Record 4 hit for resource 5
-		[[!Hits? &punch=`5` &amount=`4`]]
+		Record 20 hit for resource 4
+		[[!Hits? &punch=`4` &amount=`20`]]
+
+		Remove 4 hit from resource 5
+		[[!Hits? &punch=`5` &amount=`-4`]]
+
+		
 */ 
 
 // get the service
@@ -47,8 +52,9 @@ $depth = $modx->getOption('depth',$scriptProperties,10);
 $outputSeparator = $modx->getOption('outputSeparator',$scriptProperties,"\n");
 $toPlaceholder = $modx->getOption('toPlaceholder',$scriptProperties,"");
 
-if($parents) $parents = explode(',', $parents);
-if($parents == 0) $parents = array(0);
+if((integer)$parents == 0) $parents = array(0); // i know, i know
+else if($parents) $parents = explode(',', $parents);
+
 
 // don't just go throwing punches blindy, only store a page hit if told to do so
 if($punch && $amount) {
@@ -81,7 +87,7 @@ if(count($parents)) { // return results if requested (keyed off parents paramete
 		$childIds = array_merge($childIds,$modx->getChildIds($parent,$depth));
 	} 
 
-	//print_r($childIds);
+	$childIds = array_unique(array_filter($childIds));
 
 	// who's got the most hits kids?
 	$c = $modx->newQuery('Hit');
