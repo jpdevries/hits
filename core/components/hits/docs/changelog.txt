@@ -1,0 +1,5 @@
+Changelog file for Hits component.
+
+Hits 0.1.0
+====================================
+- Initial commit

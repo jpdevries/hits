@@ -1,0 +1,18 @@
+<?php
+if ($object->xpdo) {
+    switch ($options[xPDOTransport::PACKAGE_ACTION]) {
+        case xPDOTransport::ACTION_INSTALL:
+            $modx =& $object->xpdo;
+            $modelPath = $modx->getOption('hits.core_path',null,$modx->getOption('core_path').'components/hits/').'model/';
+            $modx->addPackage('hits',$modelPath);
+ 
+            $manager = $modx->getManager();
+ 
+            $manager->createObjectContainer('Hit');
+ 
+            break;
+        case xPDOTransport::ACTION_UPGRADE:
+            break;
+    }
+}
+return true;
