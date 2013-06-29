@@ -9,6 +9,10 @@ With hits you can:
 
 
 ## Usage
+Record a hit for the current resource.
+
+    [[!Hits? &punch=`[[*id]]`]]
+
 Record a hit for resource 3.
 
     [[!Hits? &punch=`3`]]
