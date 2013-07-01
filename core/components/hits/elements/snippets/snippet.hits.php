@@ -51,9 +51,10 @@ $limit = $modx->getOption('limit',$scriptProperties,5);
 $depth = $modx->getOption('depth',$scriptProperties,10);
 $outputSeparator = $modx->getOption('outputSeparator',$scriptProperties,"\n");
 $toPlaceholder = $modx->getOption('toPlaceholder',$scriptProperties,"");
+$offset = isset($offset) ? (integer) $offset : 0;
 
-if($parents === 0) $parents = array(0); // i know, i know
-else if($parents) $parents = explode(',', $parents);
+if((integer)$parents === 0) $parents = array(0); // i know, i know
+elseif($parents) $parents = explode(',', $parents);
 
 
 // don't just go throwing punches blindy, only store a page hit if told to do so
@@ -86,16 +87,15 @@ if(count($parents)) { // return results if requested (keyed off parents paramete
 	foreach($parents as $parent) {
 		$childIds = array_merge($childIds,$modx->getChildIds($parent,$depth));
 	} 
-
+	
 	$childIds = array_unique(array_filter($childIds));
-
 	// who's got the most hits kids?
 	$c = $modx->newQuery('Hit');
 	$c->sortby($sort,$dir);
 	$c->where(array(
 		'hit_key:IN' => $childIds
 	));
-	if($limit) $c->limit($limit);
+	if($limit) $c->limit($limit,$offset);
 
 	// render the results
 	$hits = $modx->getCollection('Hit',$c);
@@ -112,5 +112,6 @@ if($toPlaceholder) { // would you like that for here or to go?
 	$modx->setPlaceholder($toPlaceholder,$s);
 	return;
 }
+
 
 return $s;
