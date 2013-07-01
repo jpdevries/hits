@@ -9,6 +9,10 @@ With hits you can:
 
 
 ## Usage
+Record a hit for the current resource.
+
+    [[!Hits? &punch=`[[*id]]`]]
+
 Record a hit for resource 3.
 
     [[!Hits? &punch=`3`]]
@@ -23,11 +27,11 @@ Remove 4 hit from resource 5.
 
 Get a comma-delimited list of ids of the 10 most visited pages 10 levels down from the web context.
 
-    [[!Hits? &parents=`0` &depth=`10` &limit=`10` &outputSeperator=`,`]]
+    [[!Hits? &parents=`0` &depth=`10` &limit=`10` &outputSeparator=`,`]]
 
 Get a comma-delimited list of ids of the 4 least visited pages that are children of resource 2 and use your own hitInfo chunk to render results.
 
-    [[!Hits? &parents=`2` limit=`4` &dir=`ASC`  &chunk=`hitInfo` &outputSeperator=`,`]]
+    [[!Hits? &parents=`2` limit=`4` &dir=`ASC`  &chunk=`hitInfo` &outputSeparator=`,`]]
     
 
 ## Available Properties
@@ -41,8 +45,8 @@ Get a comma-delimited list of ids of the 4 least visited pages that are children
 | limit           | The amount of results to return.                                                                                                                                                 | 5               | 1.0.0
 | sort            | Property to sort results on. Available options are hit_count, hit_key or id.                                                                                                     | hit_count       | 1.0.0
 | dir             | Direction to sort properties on.                                                                                                                                                 |DESC             | 1.0.0
-| outputSeperator | An optional string to separate each tpl instance.                                                                                                                                |"\n"             | 1.0.0
-| toSeperator     | If set, will assign the result to this placeholder instead of outputting it directly.                                                                                            |                 | 1.0.0
+| outputSeparator | An optional string to separate each tpl instance.                                                                                                                                |"\n"             | 1.0.0
+| toPlaceholder     | If set, will assign the result to this placeholder instead of outputting it directly.                                                                                            |                 | 1.0.0
 
 ## With getResources
 Hits can be used be used with [getResources](http://rtfm.modx.com/display/ADDON/getResources) to list the most or least visited pages. This will pass a comma seperated list of ids of the 10 most visited pages according to Hits into getResources.
