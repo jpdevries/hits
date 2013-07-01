@@ -99,9 +99,12 @@ if(count($parents)) { // return results if requested (keyed off parents paramete
 
 	// render the results
 	$hits = $modx->getCollection('Hit',$c);
+	$hs = array();
 	foreach($hits as $hit) { 
-		$s .= $hitService->getChunk($tpl,$hit->toArray()) . $outputSeparator;	
+		$hs[] = $hitService->getChunk($tpl,$hit->toArray());	
 	}
+
+	$s = implode($outputSeparator, $hs);
 }
 
 
