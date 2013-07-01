@@ -95,6 +95,7 @@ if(count($parents)) { // return results if requested (keyed off parents paramete
 	$c->where(array(
 		'hit_key:IN' => $childIds
 	));
+	if($limit) $c->limit($limit);
 
 	// render the results
 	$hits = $modx->getCollection('Hit',$c);
