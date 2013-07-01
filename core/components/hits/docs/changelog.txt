@@ -1,25 +1,30 @@
 Changelog file for Hits component.
 
+Hits 1.0.4
+++++++++++++++++++++++++++
+#7 Fixed Trailing Output bug
+#8 Fixed Limit bug
+
 Hits 1.0.3
-====================================
-- Parents hotfix
+++++++++++++++++++++++++++
+chunkParents hotfix
 
 Hits 1.0.2
-====================================
-- Fix default tpl
+++++++++++++++++++++++++++
+chunkFix default tpl
 
 Hits 1.0.0
-====================================
-- Initial release
+++++++++++++++++++++++++++
+chunkInitial release
 
 Hits 0.1.2
-====================================
-- Adding support for &parents=`0`
+++++++++++++++++++++++++++
+chunkAdding support for &parents=`0`
 
 Hits 0.1.1
-====================================
-- Removing setup options
+++++++++++++++++++++++++++
+chunkRemoving setup options
 
 Hits 0.1.0
-====================================
-- Initial commit
+++++++++++++++++++++++++++
+chunkInitial commit
