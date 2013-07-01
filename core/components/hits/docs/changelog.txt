@@ -3,6 +3,7 @@ Changelog file for Hits component.
 Hits 1.1.0
 ++++++++++++++++++++++++++
 #9 [Feature] Added offset support
+Removing empty assets folder
 
 Hits 1.0.4
 ++++++++++++++++++++++++++
