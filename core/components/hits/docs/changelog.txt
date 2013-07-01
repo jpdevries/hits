@@ -1,5 +1,9 @@
 Changelog file for Hits component.
 
+Hits 1.1.0
+++++++++++++++++++++++++++
+#9 [Feature] Added offset support
+
 Hits 1.0.4
 ++++++++++++++++++++++++++
 #7 Fixed Trailing Output bug

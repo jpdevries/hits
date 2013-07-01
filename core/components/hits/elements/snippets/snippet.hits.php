@@ -24,6 +24,8 @@
 		Remove 4 hit from resource 5
 		[[!Hits? &punch=`5` &amount=`-4`]]
 
+		Get the four most hit resources, discluding the first
+		[[!Hits? &parents=`0` &limit=`4` &offset=`1` &outputSeparator=`,`]]
 		
 */ 
 
