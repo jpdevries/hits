@@ -55,9 +55,8 @@ $outputSeparator = $modx->getOption('outputSeparator',$scriptProperties,"\n");
 $toPlaceholder = $modx->getOption('toPlaceholder',$scriptProperties,"");
 $offset = isset($offset) ? (integer) $offset : 0;
 
-if((integer)$parents === 0) $parents = array(0); // i know, i know
+if($parents !== null && (integer)$parents === 0) $parents = array(0); // i know, i know
 elseif($parents) $parents = explode(',', $parents);
-
 
 // don't just go throwing punches blindy, only store a page hit if told to do so
 if($punch && $amount) {
