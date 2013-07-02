@@ -33,6 +33,14 @@ Get a comma-delimited list of ids of the 4 least visited pages that are children
 
     [[!Hits? &parents=`2` limit=`4` &dir=`ASC`  &chunk=`hitInfo` &outputSeparator=`,`]]
     
+Get the four most hit resources, discluding the first
+
+    	[[!Hits? &parents=`0` &limit=`4` &offset=`1` &outputSeparator=`,`]]
+        
+Knockout resource 3 then add 2 hits (knockout zeros value before adding punches)
+
+    	[[!Hits? &punch=`3` &amount=`2` &knockout=`1`]]
+    
 
 ## Available Properties
 | Name            | Description                                                                                                                                                                      | Default Value   | Added in version
