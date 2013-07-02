@@ -1,8 +1,8 @@
 Changelog file for Hits component.
 
-Hits 1.1.1
+Hits 1.2.0
 ++++++++++++++++++++++++++
-#10 Fixed returning values even when parents not set bug
+#4 Adding Knockout feature to zero out values before incrementing
 
 Hits 1.1.0
 ++++++++++++++++++++++++++
