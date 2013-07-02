@@ -38,10 +38,6 @@ if (!($hitService instanceof Hits)) return 'failed'; // you'll need another fool
 
 $s = '';
 
-/*$m = $modx->getManager();
-$created = $m->createObjectContainer('Hit');
-return $created ? 'Table created.' : 'Table not created.';*/
-
 /* setup default properties */
 $punch = $modx->getOption('punch',$scriptProperties,null); 
 $amount = $modx->getOption('amount',$scriptProperties,1);
