@@ -54,7 +54,7 @@ Knockout resource 3 then add 2 hits (knockout zeros value before adding punches)
 | sort            | Property to sort results on. Available options are hit_count, hit_key or id.                                                                                                     | hit_count       | 1.0.0
 | dir             | Direction to sort properties on.                                                                                                                                                 |DESC             | 1.0.0
 | outputSeparator | An optional string to separate each tpl instance.                                                                                                                                |"\n"             | 1.0.0
-| toPlaceholder   | If set, will assign the result to this placeholder instead of outputting it directly.                                                                                            |                 | 1.0.0
+| toPlaceholder   | If set, will assign the result to this placeholder rather than outputting.                                                                                            |                 | 1.0.0
 | offset          | Optionally offset results                                                                                                                                                        |                 | 1.1.0
 | knockout        | Set to 1 to zero hit_count of punched record before incrementing by amount                                                                                                  |                 | 1.2.0                                                       |                 | 1.1.0
 
