@@ -46,7 +46,7 @@ Get a comma-delimited list of ids of the 4 least visited pages that are children
 | sort            | Property to sort results on. Available options are hit_count, hit_key or id.                                                                                                     | hit_count       | 1.0.0
 | dir             | Direction to sort properties on.                                                                                                                                                 |DESC             | 1.0.0
 | outputSeparator | An optional string to separate each tpl instance.                                                                                                                                |"\n"             | 1.0.0
-| toPlaceholder   | If set, will assign the result to this placeholder instead of outputting it directly.                                                                                            |                 | 1.0.0
+| toPlaceholder   | If set, will assign the result to this placeholder instead of outputting it directly.                                                                                            |                 | 1.1.0
 | offset          | Optionally offset results                                                                                                                                                        |                 | 1.2.0
 | knockout        | Use to zero the hit_count of the punched resource before incrementing by amount                                                                                                                                                        |                 | 1.1.0
 
