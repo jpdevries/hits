@@ -48,7 +48,7 @@ Get a comma-delimited list of ids of the 4 least visited pages that are children
 | outputSeparator | An optional string to separate each tpl instance.                                                                                                                                |"\n"             | 1.0.0
 | toPlaceholder   | If set, will assign the result to this placeholder instead of outputting it directly.                                                                                            |                 | 1.0.0
 | offset          | Optionally offset results                                                                                                                                                        |                 | 1.1.0
-| knockout        | Use to zero the hit_count of the punched resource before incrementing by amount                                                                                                  |                 | 1.2.0                                                       |                 | 1.1.0
+| knockout        | Set to 1 to zero hit_count of punched record before incrementing by amount                                                                                                  |                 | 1.2.0                                                       |                 | 1.1.0
 
 ## With getResources
 Hits can be used be used with [getResources](http://rtfm.modx.com/display/ADDON/getResources) to list the most or least visited pages. This will pass a comma seperated list of ids of the 10 most visited pages according to Hits into getResources.
