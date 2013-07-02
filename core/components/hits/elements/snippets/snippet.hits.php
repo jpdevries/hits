@@ -26,6 +26,9 @@
 
 		Get the four most hit resources, discluding the first
 		[[!Hits? &parents=`0` &limit=`4` &offset=`1` &outputSeparator=`,`]]
+
+		Knockout resource 3 then add 2 hits (knockout zeros value before adding punches)
+		[[!Hits? &punch=`3` &amount=`2` &knockout=`1`]]
 		
 */ 
 
@@ -40,16 +43,17 @@ $s = '';
 
 /* setup default properties */
 $punch = $modx->getOption('punch',$scriptProperties,null); 
-$amount = $modx->getOption('amount',$scriptProperties,1);
+(integer)$amount = $modx->getOption('amount',$scriptProperties,1);
 $sort = $modx->getOption('sort',$scriptProperties,'hit_count');
 $dir = $modx->getOption('dir',$scriptProperties,'DESC');
 $parents = $modx->getOption('parents',$scriptProperties,null);
 $tpl = $modx->getOption('tpl',$scriptProperties,'hitTpl'); 
 $limit = $modx->getOption('limit',$scriptProperties,5);
-$depth = $modx->getOption('depth',$scriptProperties,10);
+(integer)$depth = $modx->getOption('depth',$scriptProperties,10);
 $outputSeparator = $modx->getOption('outputSeparator',$scriptProperties,"\n");
 $toPlaceholder = $modx->getOption('toPlaceholder',$scriptProperties,"");
 $offset = isset($offset) ? (integer) $offset : 0;
+$knockout = (bool)$modx->getOption('knockout',$scriptProperties,false);
 
 if($parents !== null && (integer)$parents === 0) $parents = array(0); // i know, i know
 elseif($parents) $parents = explode(',', $parents);
@@ -62,7 +66,7 @@ if($punch && $amount) {
 
 	if($hit) {
 		// increment the amount
-		$hit->set('hit_count',(integer)$hit->get('hit_count') + $amount); 
+		$hit->set('hit_count',($knockout ? 0 : (integer)$hit->get('hit_count')) + $amount); 
 		$hit->save();
 	} else {
 		// create a new hit record
