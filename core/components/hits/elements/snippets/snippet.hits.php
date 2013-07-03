@@ -58,6 +58,8 @@ $knockout = (bool)$modx->getOption('knockout',$scriptProperties,false);
 if(trim($parents) == '0') $parents = array(0); // i know, i know
 else if($parents) $parents = explode(',', $parents);
 
+if($depth < 1) $depth = 1;
+
 // don't just go throwing punches blindy, only store a page hit if told to do so
 if($punch && $amount) {
 	$hit = $modx->getObject('Hit',array(
