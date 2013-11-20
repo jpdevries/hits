@@ -29,4 +29,23 @@ $xpdo_meta_map['Hit']= array (
       'default' => 0,
     ),
   ),
+  'indexes' => 
+  array (
+    'hit_key_idx' => 
+    array (
+      'alias' => 'hit_key_idx',
+      'primary' => false,
+      'unique' => true,
+      'type' => 'BTREE',
+      'columns' => 
+      array (
+        'hit_key' => 
+        array (
+          'collation' => 'A',
+          'length' => '',
+          'null' => false,
+        ),
+      ),
+    ),
+  ),
 );
