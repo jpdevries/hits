@@ -1,5 +1,9 @@
 Changelog file for Hits component.
 
+Hits 1.2.1
+++++++++++++++++++++++++++
+#1 MySQL Optimization (thanks @the-dunnock)
+
 Hits 1.2.0
 ++++++++++++++++++++++++++
 #4 Adding Knockout feature to zero out values before incrementing
