@@ -21,6 +21,30 @@ class Hits {
         ),$config);
 		$this->modx->addPackage('hits',$this->config['modelPath']);
     }
+    
+    public function getHit($hit_key) {
+        $c = $modx->newQuery('Hit');
+        $c->where(array(
+        		'hit_key' => $hit_key
+        ));
+        $c->limit(1);
+	
+        $hit = $modx->getOne('Hit',$c);
+        return $hit;
+    }
+    
+    public function getHits($childIds, $sort, $dir, $limit, $offset) {
+    	$c = $this->modx->newQuery('Hit');
+    	$c->sortby($sort,$dir);
+    	$c->where(array(
+    		'hit_key:IN' => $childIds
+    	));
+    	if($limit) $c->limit($limit,$offset);
+
+    	// render the results
+    	$hits = $this->modx->getCollection('Hit',$c);
+        return $hits;
+    }
 
 	public function getChunk($name,$properties = array()) {
 	    $chunk = null;
@@ -39,6 +63,14 @@ class Hits {
 	    $chunk->setCacheable(false);
 	    return $chunk->process($properties);
 	}
+    
+    public function processHits($hits,$tpl) {
+    	$hs = array();
+    	foreach($hits as $hit) { 
+    		$hs[] = $this->getChunk($tpl,$hit->toArray());	
+    	}
+        return $hs;
+    }
 
 	private function _getTplChunk($name,$postfix = '.chunk.tpl') {
 	    $chunk = false;

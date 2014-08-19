@@ -47,6 +47,7 @@ $punch = $modx->getOption('punch',$scriptProperties,null);
 $sort = $modx->getOption('sort',$scriptProperties,'hit_count');
 $dir = $modx->getOption('dir',$scriptProperties,'DESC');
 $parents = $modx->getOption('parents',$scriptProperties,null);
+$resources = explode(',',$modx->getOption('resources',$scriptProperties,null));
 $tpl = $modx->getOption('tpl',$scriptProperties,'hitTpl'); 
 $limit = $modx->getOption('limit',$scriptProperties,5);
 (integer)$depth = $modx->getOption('depth',$scriptProperties,10);
@@ -85,28 +86,23 @@ if($punch && $amount) {
 $s = '';
 if(count($parents)) { // return results if requested (keyed off parents parameter)
 	// create an array of child ids to compare hits
-	
-	$childIds = array();
-	foreach($parents as $parent) {
-		$childIds = array_merge($childIds,$modx->getChildIds($parent,$depth));
-	} 
-	
-	$childIds = array_unique(array_filter($childIds));
-	// who's got the most hits kids?
-	$c = $modx->newQuery('Hit');
-	$c->sortby($sort,$dir);
-	$c->where(array(
-		'hit_key:IN' => $childIds
-	));
-	if($limit) $c->limit($limit,$offset);
+        
+    $hits = array();
+    $childIds = array();
+    if(count($parents)) {
+    	foreach($parents as $parent) {
+    		$childIds = array_merge($childIds,$modx->getChildIds($parent,$depth));
+    	} 
+        $childIds = array_unique($childIds);
+        $hits = $hitService->getHits($childIds, $sort, $dir, $limit, $offset);
+    } 
+    
+    if(!is_null($resources)) {
+        $resources = array_diff($resources,$childIds);
+        $hits = array_merge($hits,$hitService->getHits($resources, $sort, $dir, $limit, $offset));
+    }
 
-	// render the results
-	$hits = $modx->getCollection('Hit',$c);
-	$hs = array();
-	foreach($hits as $hit) { 
-		$hs[] = $hitService->getChunk($tpl,$hit->toArray());	
-	}
-
+	$hs = $hitService->processHits($hits,$tpl);
 	$s = implode($outputSeparator, $hs);
 }
 
