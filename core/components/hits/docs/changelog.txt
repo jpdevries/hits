@@ -1,5 +1,9 @@
 Changelog file for Hits component.
 
+Hits 1.3.0
+++++++++++++++++++++++++++
+#14 hit_keys support
+
 Hits 1.2.1
 ++++++++++++++++++++++++++
 #1 MySQL Optimization (thanks @the-dunnock)
