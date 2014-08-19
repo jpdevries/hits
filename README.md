@@ -40,6 +40,10 @@ Get the four most hit resources, discluding the first
 Knockout resource 3 then add 2 hits (knockout zeros value before adding punches)
 
     	[[!Hits? &punch=`3` &amount=`2` &knockout=`1`]]
+        
+Output the number of hits for a current resource using a custom Chunk template.
+
+    	[[!Hits? $hit_keys=`[[*id]]` &tpl=`my-custom-chunk`]]
     
 
 ## Available Properties
@@ -48,7 +52,7 @@ Knockout resource 3 then add 2 hits (knockout zeros value before adding punches)
 | punch           | If set, a hit_key to record one or more hits for. Usually a resource id.                                                                                                         |                 | 1.0.0
 | amount          | The amount of hits to record for the punched hit_key.                                                                                                                            | 1               | 1.0.0
 | parents         | Comma-delimited list of ids serving as parents to search for most visited resources within. If provided, results are returned.                                                   |                 | 1.0.0
-| resources       | Comma-delimited list of ids serving as resources to include                               . If provided, results are returned.                                                   |                 | 1.1.0
+| hit_keys       | Comma-delimited list of ids serving as hit_keys to include. If provided, results are returned.                                                                                    |                 | 1.3.0
 | depth           | Integer value indicating depth to search for resources from each parent. First level of resources beneath parent is depth.                                                       | 10              | 1.0.0
 | tpl             | hit_key, hit_count, and id (of hit) paramters will be passed into the provided chunk for each result.                                                                            | outputs hit_key | 1.0.0
 | limit           | The amount of results to return.                                                                                                                                                 | 5               | 1.0.0

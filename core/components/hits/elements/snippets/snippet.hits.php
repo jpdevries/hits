@@ -47,7 +47,7 @@ $punch = $modx->getOption('punch',$scriptProperties,null);
 $sort = $modx->getOption('sort',$scriptProperties,'hit_count');
 $dir = $modx->getOption('dir',$scriptProperties,'DESC');
 $parents = $modx->getOption('parents',$scriptProperties,null);
-$resources = explode(',',$modx->getOption('resources',$scriptProperties,null));
+$hit_keys = explode(',',$modx->getOption('hit_keys',$scriptProperties,null));
 $tpl = $modx->getOption('tpl',$scriptProperties,'hitTpl'); 
 $limit = $modx->getOption('limit',$scriptProperties,5);
 (integer)$depth = $modx->getOption('depth',$scriptProperties,10);
@@ -84,27 +84,25 @@ if($punch && $amount) {
 }
 
 $s = '';
-if(count($parents)) { // return results if requested (keyed off parents parameter)
-	// create an array of child ids to compare hits
-        
-    $hits = array();
-    $childIds = array();
-    if(count($parents)) {
-    	foreach($parents as $parent) {
-    		$childIds = array_merge($childIds,$modx->getChildIds($parent,$depth));
-    	} 
-        $childIds = array_unique($childIds);
-        $hits = $hitService->getHits($childIds, $sort, $dir, $limit, $offset);
-    } 
+// create an array of child ids to compare hits
     
-    if(!is_null($resources)) {
-        $resources = array_diff($resources,$childIds);
-        $hits = array_merge($hits,$hitService->getHits($resources, $sort, $dir, $limit, $offset));
-    }
+$hits = array();
+$childIds = array();
+if(count($parents)) {
+	foreach($parents as $parent) {
+		$childIds = array_merge($childIds,$modx->getChildIds($parent,$depth));
+	} 
+    $childIds = array_unique($childIds);
+    $hits = $hitService->getHits($childIds, $sort, $dir, $limit, $offset);
+} 
 
-	$hs = $hitService->processHits($hits,$tpl);
-	$s = implode($outputSeparator, $hs);
+if(!is_null($hit_keys)) {
+    $hit_keys = array_diff($hit_keys,$childIds);
+    $hits = array_merge($hits,$hitService->getHits($hit_keys, $sort, $dir, $limit, $offset));
 }
+
+$hs = $hitService->processHits($hits,$tpl);
+$s = implode($outputSeparator, $hs);
 
 
 if($toPlaceholder) { // would you like that for here or to go?
